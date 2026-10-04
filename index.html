@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BlindSpot AI — an AI thinking partner that uncovers assumptions, overlooked factors, missing information and conflicts inside your decisions, without making the decision for you." />
+    <meta name="theme-color" content="#05070d" />
+    <meta name="referrer" content="no-referrer" />
+    <title>BlindSpot AI — See what you're not seeing.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+  </head>
+  <body>
+    <a class="skip-link" href="#app-main">Skip to content</a>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__grid"></div>
+      <div class="ambient__glow ambient__glow--one"></div>
+      <div class="ambient__glow ambient__glow--two"></div>
+      <div class="ambient__noise"></div>
+    </div>
+
+    <div id="intro" class="intro" role="dialog" aria-modal="true" aria-label="Cinematic introduction">
+      <video id="intro-video" class="intro__video" muted playsinline autoplay preload="auto" src="intro.mp4" aria-hidden="true"></video>
+      <button type="button" id="skip-intro" class="intro__skip">Skip intro</button>
+    </div>
+
+    <div id="app" class="app">
+      <header class="site-header">
+        <a href="#hero" class="brand" data-nav="landing">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">BLINDSPOT AI</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#how" class="nav__link" data-nav="landing">How it works</a>
+          <a href="#features" class="nav__link" data-nav="landing">Capabilities</a>
+          <button type="button" class="btn btn--ghost btn--sm" data-open-form>Analyze</button>
+        </nav>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </header>
+
+      <div id="mobile-nav" class="mobile-nav" hidden>
+        <a href="#how" class="mobile-nav__link" data-nav="landing">How it works</a>
+        <a href="#features" class="mobile-nav__link" data-nav="landing">Capabilities</a>
+        <button type="button" class="btn btn--primary" data-open-form>Analyze a decision</button>
+      </div>
+
+      <main id="app-main">
+        <!-- ============ LANDING ============ -->
+        <section id="landing" class="view view--landing" data-view="landing" aria-label="BlindSpot AI">
+          <section id="hero" class="hero">
+            <p class="eyebrow reveal">An AI thinking partner</p>
+            <h1 class="hero__title reveal">BLINDSPOT <span>AI</span></h1>
+            <p class="hero__tagline reveal">“See what you're not seeing.”</p>
+            <p class="hero__lede reveal">
+              An AI thinking partner that uncovers assumptions, overlooked factors,
+              missing information, and conflicts inside your decisions — without
+              making the decision for you.
+            </p>
+            <div class="hero__actions reveal">
+              <button type="button" class="btn btn--primary" data-open-form>Analyze a decision</button>
+              <a href="#how" class="btn btn--ghost" data-scroll>See how it works</a>
+            </div>
+            <p class="hero__try reveal">
+              Evaluating? <button type="button" class="btn btn--text" id="try-sample">Try it with a sample internship decision in one click</button>
+            </p>
+            <p class="hero__promise reveal">
+              We don't decide for you.<br />
+              We help you see what you might be missing.
+            </p>
+
+            <figure class="peek reveal">
+              <figcaption class="peek__cap">What you get back: an example from an internship decision</figcaption>
+              <div class="peek__row">
+                <div class="peek__col peek__col--fact"><h3>Fact</h3><p>₹25,000 stipend, 40 hours/week</p></div>
+                <div class="peek__col peek__col--assumption"><h3>Assumption</h3><p>“Industry experience automatically means strong career value.”</p></div>
+                <div class="peek__col peek__col--unknown"><h3>Unknown</h3><p>Who would mentor you, and how much real technical work you would do?</p></div>
+              </div>
+              <p class="peek__spot"><strong>Potential blind spot.</strong> You emphasized the stipend and proximity, but your reasoning doesn't yet address how 40 hours per week could affect your academic schedule. <em>How would this work during exams?</em></p>
+            </figure>
+          </section>
+
+          <section class="section split" aria-labelledby="split-title">
+            <h2 id="split-title" class="split__title">You decide. We help you think.</h2>
+            <div class="split__grid">
+              <article class="glass-card split__card">
+                <h3>The problem</h3>
+                <p>People decide using whatever is most visible: the salary, the distance, the brand. In the process they overlook factors that matter, lean on assumptions they never stated, and miss conflicts inside their own reasoning.</p>
+              </article>
+              <article class="glass-card split__card split__card--accent">
+                <h3>What BlindSpot does</h3>
+                <p>It reads your actual reasoning and separates what you <strong>know</strong> from what you <strong>assume</strong> and what is still <strong>unknown</strong>. Then it surfaces blind spots, tensions between your priorities, and questions worth investigating.</p>
+              </article>
+              <article class="glass-card split__card">
+                <h3>What it never does</h3>
+                <p>It never recommends an option, ranks your choices, predicts an outcome, or tells you what to choose. The decision stays entirely yours.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="how" class="section how" aria-labelledby="how-title">
+            <div class="section__head">
+              <p class="eyebrow">Process</p>
+              <h2 id="how-title">How it works</h2>
+              <p class="section__sub">Four steps that examine your reasoning, without choosing for you.</p>
+            </div>
+            <ol class="steps">
+              <li class="step-card"><span class="step-card__num">01</span><h3>Describe your decision</h3><p>Name the choice in front of you and the options you are weighing.</p></li>
+              <li class="step-card"><span class="step-card__num">02</span><h3>Explain your reasoning</h3><p>Share what you know, what you value, and why you are currently leaning one way.</p></li>
+              <li class="step-card"><span class="step-card__num">03</span><h3>BlindSpot examines it</h3><p>It looks for blind spots, possible assumptions, conflicts and missing information.</p></li>
+              <li class="step-card"><span class="step-card__num">04</span><h3>Stress-test and refine</h3><p>Use the questions and the challenge pass, add what you learn, and run it again.</p></li>
+            </ol>
+          </section>
+
+          <section id="features" class="section features" aria-labelledby="features-title">
+            <div class="section__head">
+              <p class="eyebrow">Capabilities</p>
+              <h2 id="features-title">What BlindSpot surfaces</h2>
+              <p class="section__sub">The language stays careful on purpose: may, could, appears to, worth examining. Never a verdict on you.</p>
+            </div>
+            <div class="feature-grid">
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">◎</span><h3>Blind spots</h3><p>Factors that may be underweighted relative to what you already emphasized.</p></article>
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">◇</span><h3>Fact / Assumption / Unknown</h3><p>A reasoning map that shows what you know, what you are assuming, and what you cannot yet know.</p></article>
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">⇄</span><h3>Conflicts</h3><p>Where two priorities you care about may pull in different directions.</p></article>
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">▢</span><h3>Missing information</h3><p>Facts that could materially change how you evaluate the same options.</p></article>
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">?</span><h3>Questions to consider</h3><p>Specific questions that slow the jump from preference to conclusion.</p></article>
+              <article class="glass-card feature"><span class="feature__icon" aria-hidden="true">⚡</span><h3>Challenge my thinking</h3><p>A second pass that stress-tests weak assumptions, evidence, alternatives and scenarios.</p></article>
+            </div>
+          </section>
+
+          <section class="section cta-final">
+            <div class="glass-card cta-final__card">
+              <h2>Look at your decision differently.</h2>
+              <p>It takes about two minutes. No account, nothing stored.</p>
+              <button type="button" class="btn btn--primary" data-open-form>Analyze a decision</button>
+            </div>
+          </section>
+        </section>
+
+        <!-- ============ FORM ============ -->
+        <section id="form-view" class="view view--form" data-view="form" hidden aria-labelledby="form-title">
+          <div class="view-inner">
+            <p class="eyebrow" id="form-eyebrow">Decision intake</p>
+            <h1 id="form-title" tabindex="-1">Let's examine your decision.</h1>
+            <p class="view-lede">
+              Fill this in as honestly as you can. BlindSpot examines the reasoning. It will not pick an option for you.
+            </p>
+            <p class="privacy-note">
+              Privacy: nothing you type is saved in your browser or on a server. Please leave out names and sensitive personal details. When a live AI backend is connected, your text is sent to it only to generate this analysis.
+            </p>
+            <button type="button" class="btn btn--text" id="prefill-sample">Use the sample internship decision</button>
+
+            <form id="decision-form" class="decision-form" novalidate>
+              <fieldset class="form-block glass-card" id="refine-block" hidden>
+                <legend>Round <span id="round-num">2</span> — what have you learned or reconsidered?</legend>
+                <label class="sr-only" for="update">New information</label>
+                <textarea id="update" name="update" rows="3" maxlength="1500" placeholder="e.g. I asked HR: hours are flexible during exams, but there is no named mentor yet."></textarea>
+                <p class="hint">Everything you entered before is preserved below. Edit anything that has changed.</p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>A. What decision are you considering?</legend>
+                <label class="sr-only" for="decision">Decision</label>
+                <textarea id="decision" name="decision" rows="3" maxlength="600" required aria-describedby="err-decision" placeholder="Should I accept a 6-month software engineering internship?"></textarea>
+                <p class="field-error" id="err-decision" data-error-for="decision" hidden></p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>B. What are your options?</legend>
+                <div id="options-list" class="options-list">
+                  <div class="option-row">
+                    <label for="option-0">Option A</label>
+                    <input id="option-0" name="options[]" type="text" maxlength="160" placeholder="Accept internship" required />
+                  </div>
+                  <div class="option-row">
+                    <label for="option-1">Option B</label>
+                    <input id="option-1" name="options[]" type="text" maxlength="160" placeholder="Decline internship" required />
+                  </div>
+                </div>
+                <button type="button" class="btn btn--text" id="add-option">+ Add another option</button>
+                <p class="field-error" id="err-options" data-error-for="options" hidden></p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>C. What do you know about the situation?</legend>
+                <label class="sr-only" for="known">Known information</label>
+                <textarea id="known" name="known" rows="4" maxlength="1500" required aria-describedby="err-known" placeholder="₹25,000 stipend, 40 hours/week, 10 km from home, software development role, overlapping college schedule…"></textarea>
+                <p class="field-error" id="err-known" data-error-for="known" hidden></p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>D. Why are you currently leaning toward one option?</legend>
+                <label class="sr-only" for="leaning">Current leaning</label>
+                <textarea id="leaning" name="leaning" rows="4" maxlength="1500" required aria-describedby="err-leaning" placeholder="I'm leaning toward accepting because it's close to home and would give me industry experience."></textarea>
+                <p class="field-error" id="err-leaning" data-error-for="leaning" hidden></p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>E. What matters most to you?</legend>
+                <p class="hint">Select all that apply.</p>
+                <div class="priority-grid" id="priority-grid" role="group" aria-label="Priorities">
+                  <button type="button" class="chip" data-priority="Career growth">Career</button>
+                  <button type="button" class="chip" data-priority="Money">Money</button>
+                  <button type="button" class="chip" data-priority="Education">Education</button>
+                  <button type="button" class="chip" data-priority="Time">Time</button>
+                  <button type="button" class="chip" data-priority="Family">Family</button>
+                  <button type="button" class="chip" data-priority="Health">Health</button>
+                  <button type="button" class="chip" data-priority="Location">Location</button>
+                  <button type="button" class="chip" data-priority="Learning">Learning</button>
+                  <button type="button" class="chip" data-priority="Stability">Stability</button>
+                  <button type="button" class="chip" data-priority="Experience">Experience</button>
+                  <button type="button" class="chip" data-priority="Personal goals">Personal goals</button>
+                  <button type="button" class="chip" data-priority="Other">Other</button>
+                </div>
+                <label class="other-priority" for="priority-other" hidden>
+                  Other priority
+                  <input id="priority-other" type="text" maxlength="60" placeholder="Describe what else matters" />
+                </label>
+                <p class="field-error" id="err-priorities" data-error-for="priorities" hidden></p>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>F. What concerns or doubts do you already have? <span class="opt">(optional)</span></legend>
+                <label class="sr-only" for="concerns">Concerns</label>
+                <textarea id="concerns" name="concerns" rows="3" maxlength="1500" placeholder="I'm worried about balancing 40 hours a week with my college schedule."></textarea>
+              </fieldset>
+
+              <fieldset class="form-block glass-card">
+                <legend>G. What information are you still unsure about? <span class="opt">(optional)</span></legend>
+                <label class="sr-only" for="unsure">Unsure information</label>
+                <textarea id="unsure" name="unsure" rows="3" maxlength="1500" placeholder="Mentorship quality, exam flexibility, whether it could lead to a job offer…"></textarea>
+              </fieldset>
+
+              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" id="form-back">Back</button>
+                <button type="submit" class="btn btn--primary" id="submit-decision">Reveal my blind spots</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ============ LOADING ============ -->
+        <section id="loading-view" class="view view--loading" data-view="loading" hidden aria-label="Analysis in progress">
+          <div class="loader" role="status" aria-live="polite">
+            <div class="loader__ring" aria-hidden="true"></div>
+            <p class="loader__kicker">Examining your reasoning</p>
+            <p id="loader-stage" class="loader__stage">Mapping your decision…</p>
+          </div>
+        </section>
+
+        <!-- ============ ANALYSIS ============ -->
+        <section id="analysis-view" class="view view--analysis" data-view="analysis" hidden aria-labelledby="analysis-title">
+          <div class="view-inner analysis-shell">
+            <div class="analysis-top">
+              <div>
+                <p class="mode-badge" id="analysis-mode-label">Analysis</p>
+                <h1 id="analysis-title" tabindex="-1">Your reasoning, examined.</h1>
+                <p class="mode-note" id="mode-note" hidden></p>
+              </div>
+              <div class="analysis-toolbar">
+                <button type="button" class="btn btn--ghost btn--sm" id="add-more">Add more information</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="run-again">Run analysis again</button>
+                <button type="button" class="btn btn--text btn--sm" id="start-new">Start new decision</button>
+              </div>
+            </div>
+
+            <nav class="jump" aria-label="Jump to section">
+              <a href="#reasoning-map">Reasoning map</a>
+              <a href="#blindspots-section">Blind spots</a>
+              <a href="#assumptions-section">Assumptions</a>
+              <a href="#conflicts-section">Conflicts</a>
+              <a href="#missing-section">Missing info</a>
+              <a href="#questions-section">Questions</a>
+              <a href="#challenge-cta">Challenge</a>
+            </nav>
+
+            <article class="glass-card summary-card" id="decision-summary" aria-live="polite"></article>
+
+            <section class="dash-section" id="reasoning-map" aria-labelledby="map-title">
+              <header class="dash-section__head">
+                <h2 id="map-title">Fact / Assumption / Unknown</h2>
+                <p>The same reasoning, sorted by how much you can actually lean on it.</p>
+              </header>
+              <div class="fau" id="fau-grid"></div>
+
+              <div class="coverage glass-card" id="coverage-panel">
+                <h3>Reasoning Coverage</h3>
+                <p class="coverage__note">This is a reflection of how many relevant dimensions you have provided information about. It is not a measure of decision quality.</p>
+                <ul class="coverage__list" id="coverage-list"></ul>
+              </div>
+
+              <div class="intelligence-grid">
+                <article class="glass-card intelligence-panel decision-map-panel" id="decision-map-panel">
+                  <div class="panel-kicker"><span class="status-dot"></span> Decision intelligence</div>
+                  <h3>Decision Map</h3>
+                  <p class="panel-sub">Trace how your stated facts become assumptions, unknowns and potential blind spots.</p>
+                  <div id="decision-map" class="decision-map" role="img" aria-label="Decision reasoning map"></div>
+                </article>
+                <article class="glass-card intelligence-panel radar-panel" id="radar-panel">
+                  <div class="panel-kicker"><span class="status-dot"></span> Attention profile</div>
+                  <h3>Reasoning Coverage Radar</h3>
+                  <p class="panel-sub">A visual reflection of which parts of your reasoning are more examined versus where evidence is thin.</p>
+                  <div id="blindspot-radar" class="blindspot-radar" role="img" aria-label="Reasoning coverage radar chart"></div>
+                  <p class="radar-legend"><span>More examined</span><span>Needs evidence</span></p>
+                </article>
+              </div>
+
+              <article class="glass-card evidence-panel" id="evidence-gaps">
+                <div class="evidence-panel__head">
+                  <div>
+                    <div class="panel-kicker"><span class="status-dot"></span> Evidence layer</div>
+                    <h3>Evidence Gaps</h3>
+                    <p class="panel-sub">The claims and unknowns most worth verifying before your reasoning becomes more confident.</p>
+                  </div>
+                  <span class="evidence-count" id="evidence-gap-count">0 gaps</span>
+                </div>
+                <div id="evidence-gap-list" class="evidence-gap-list"></div>
+              </article>
+            </section>
+
+            <section class="dash-section" id="blindspots-section" aria-labelledby="bs-title">
+              <header class="dash-section__head">
+                <h2 id="bs-title">Potential blind spots</h2>
+                <p>Gaps in what your current reasoning is attending to.</p>
+              </header>
+              <div class="card-grid" id="blindspots-grid"></div>
+            </section>
+
+            <section class="dash-section" id="assumptions-section" aria-labelledby="as-title">
+              <header class="dash-section__head">
+                <h2 id="as-title">Assumptions detected</h2>
+                <p>Beliefs your reasoning may be treating as settled.</p>
+              </header>
+              <div class="card-grid card-grid--two" id="assumptions-grid"></div>
+            </section>
+
+            <section class="dash-section" id="conflicts-section" aria-labelledby="cf-title">
+              <header class="dash-section__head">
+                <h2 id="cf-title">Potential conflicts</h2>
+                <p>Priorities that may be in tension. This is not a verdict that either one is wrong.</p>
+              </header>
+              <div class="card-grid card-grid--two" id="conflicts-grid"></div>
+            </section>
+
+            <section class="dash-section" id="missing-section" aria-labelledby="mi-title">
+              <header class="dash-section__head">
+                <h2 id="mi-title">Missing information</h2>
+                <p>Facts that could materially affect how you evaluate the same options.</p>
+              </header>
+              <div class="card-grid card-grid--two" id="missing-grid"></div>
+            </section>
+
+            <section class="dash-section" id="questions-section" aria-labelledby="q-title">
+              <header class="dash-section__head">
+                <h2 id="q-title">Questions to consider</h2>
+                <p>Prompts for reflection, not a quiz with a correct answer.</p>
+              </header>
+              <ol class="question-list" id="questions-list"></ol>
+            </section>
+
+            <section class="challenge-cta glass-card" id="challenge-cta" aria-labelledby="ch-title">
+              <div>
+                <p class="eyebrow">Second pass</p>
+                <h2 id="ch-title">Stress-test the reasoning</h2>
+                <p>Challenge My Thinking hunts for weak assumptions, missing evidence, alternative readings, trade-offs and scenarios that could change your reasoning, without arguing for a choice.</p>
+              </div>
+              <button type="button" class="btn btn--primary" id="challenge-btn">Challenge my thinking</button>
+            </section>
+
+            <section id="challenge-loading" class="challenge-loading" hidden role="status" aria-live="polite">
+              <div class="scanline" aria-hidden="true"></div>
+              <p>Running a second thinking pass…</p>
+            </section>
+
+            <section id="challenge-results" class="dash-section challenge-zone" hidden aria-labelledby="chr-title">
+              <header class="dash-section__head">
+                <h2 id="chr-title" tabindex="-1">Challenge results</h2>
+                <p>Pressure tests, not a recommendation. Each one is a question to answer for yourself.</p>
+                <p class="mode-note" id="challenge-note" hidden></p>
+              </header>
+              <div id="challenge-grid" class="challenge-grid"></div>
+            </section>
+
+            <section class="round-compare glass-card" id="round-comparison" aria-labelledby="round-title" hidden>
+              <div class="panel-kicker"><span class="status-dot"></span> Reasoning evolution</div>
+              <div class="round-compare__head">
+                <div>
+                  <h2 id="round-title">Round 2 — what changed?</h2>
+                  <p>BlindSpot compares your reasoning structure, not whether your decision is “better”.</p>
+                </div>
+                <span class="tag tag--round" id="round-change-label">Comparison</span>
+              </div>
+              <div id="round-comparison-grid" class="round-comparison-grid"></div>
+            </section>
+
+            <section class="decision-brief glass-card" id="decision-brief" aria-labelledby="brief-title">
+              <div class="brief__top">
+                <div>
+                  <div class="panel-kicker"><span class="status-dot"></span> Takeaway</div>
+                  <h2 id="brief-title">Decision Brief</h2>
+                  <p class="panel-sub">A compact snapshot of your reasoning — not a recommendation.</p>
+                </div>
+                <span class="brief-badge">YOUR CALL</span>
+              </div>
+              <div id="brief-grid" class="brief-grid"></div>
+              <div id="brief-next" class="brief-next"></div>
+            </section>
+
+            <section class="refine glass-card" aria-labelledby="refine-title">
+              <h2 id="refine-title">Thinking is iterative.</h2>
+              <p>Found an answer to one of the questions? Add it and run the analysis again. Your earlier input is kept.</p>
+              <div class="form-actions">
+                <button type="button" class="btn btn--primary" id="refine-add">Add more information</button>
+                <button type="button" class="btn btn--ghost" id="refine-rerun">Run analysis again</button>
+                <button type="button" class="btn btn--text" id="refine-new">Start new decision</button>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>BlindSpot AI never makes the decision for you. It is a thinking aid, not professional advice.</p>
+      </footer>
+    </div>
+
+    <div id="api-banner" class="api-banner" hidden role="alertdialog" aria-modal="true" aria-labelledby="api-banner-title" aria-describedby="api-banner-copy">
+      <div class="glass-card api-banner__card">
+        <h2 id="api-banner-title">The live analysis couldn't complete</h2>
+        <p id="api-banner-copy">The AI service didn't return a usable response. You can retry, or continue with a built-in demo analysis based on what you wrote.</p>
+        <div class="form-actions">
+          <button type="button" class="btn btn--ghost" id="api-dismiss">Back to form</button>
+          <button type="button" class="btn btn--ghost" id="api-retry">Retry</button>
+          <button type="button" class="btn btn--primary" id="api-demo">Use demo analysis</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

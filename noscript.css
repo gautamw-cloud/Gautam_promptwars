@@ -1,0 +1,3 @@
+/* Loaded only when JavaScript is disabled: show the landing page, hide the intro. */
+.intro { display: none !important; }
+.app { opacity: 1 !important; transform: none !important; animation: none !important; }
